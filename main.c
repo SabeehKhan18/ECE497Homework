@@ -10,11 +10,13 @@
 int main(void) {
 	// The array where the sketch will be held
 	char array[8][8];
+	int x = sizeof(array[0]);
+	int y = sizeof(array) / sizeof(array[0]);
 
 	// Function to clear the array
 	void clear() {
-		for (int k = 0; k < sizeof(array[0]); k++) {
-			for (int i = 0; i < sizeof(array[0]); i++) {
+		for (int k = 0; k < y; k++) {
+			for (int i = 0; i < x; i++) {
 				array[k][i] = ' ';
 			}
 		}
@@ -32,14 +34,14 @@ int main(void) {
 	while(1) {
 		printf("Pen is at %d, %d\n",penX,penY);
 		printf("   ");
-		for (int i = 0; i < sizeof(array[0]); i++) {
+		for (int i = 0; i < x; i++) {
 			printf("%d ",i);
 		}
 		printf("\n");
 		
-		for (int i = 0; i < sizeof(array[0]); i++) {
+		for (int i = 0; i < y; i++) {
 			printf("%d: ",i);
-			for (int k = 0; k < sizeof(array[0]); k++) {	
+			for (int k = 0; k < x; k++) {	
 				printf("%c ", array[i][k]);	
 			}
 			printf("\n");
@@ -57,24 +59,22 @@ int main(void) {
 		else printf("Improper input");
 		
 		void printError(void) {
-			printf("Improper move command. Resetting.");
+			printf("Improper move command. Resetting.\n");
 		}
 	
-		char test = sizeof(array[0]);
 		// Check to see if pen movement was within boundaries
 		if (penX < 0) {
 			printError();
 			penX = 0;
 		}
-		else if (penX > test - 1) {
+		else if (penX > x - 1) {
 			printError();
-			penX = test - 1;
+			penX = x - 1;
 		}
 
-		test = sizeof(array[0]);
-		if (penY > test - 1) {
+		if (penY > y - 1) {
 			printError();
-			penY = test - 1;
+			penY = y - 1;
 		}
 		else if (penY < 0) {
 			printError();
