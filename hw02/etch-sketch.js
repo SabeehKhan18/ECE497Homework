@@ -69,12 +69,12 @@ function mark(i) {
 	// needed to flip x.value
 	else if (i.pin.key == "P9_15") {
 		y = y + 1;
-		if (y == MaxY - 1)
+		if (y == MaxY)
 			y = 0;
 	}
 	else if (i.pin.key == "P9_17") {
 		x = x + 1;
-		if (x == MaxX - 1)
+		if (x == MaxX)
 			x = 0;
 	}
 	board[y][x] = 'X';
