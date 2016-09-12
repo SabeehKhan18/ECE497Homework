@@ -1,4 +1,4 @@
-To compile, use "gcc main.c -stc=c99"
+To compile, use "gcc main.c -std=c99"
 
 Execute by "./a.out"
 
