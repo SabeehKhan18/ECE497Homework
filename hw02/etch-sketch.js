@@ -74,8 +74,7 @@ function mark(i) {
 	}
 	else if (i.pin.key == "P9_17") {
 		x = x + 1;
-		if (x == MaxX)
-			x = 0;
+		if (x == MaxX) x = 0;
 	}
 	board[y][x] = 'X';
 	printBoard();
