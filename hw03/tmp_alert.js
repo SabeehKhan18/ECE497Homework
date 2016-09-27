@@ -9,7 +9,7 @@ for (var i=0; i < pins.length; i++)
 	b.pinMode(pins[i], b.INPUT);
 	b.attachInterrupt(pins[i],true,b.CHANGE,callback);
 }
-
+console.log("Touch one of the sensors");
 block = true;
 function callback(x) 
 {
