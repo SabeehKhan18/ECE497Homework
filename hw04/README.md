@@ -4,3 +4,11 @@ The boneServer.js file starts a node server as well as bonescript and socket.io.
 
 
 The second part of the assignment is to create a memory map and use that to control a button and led on the beaglebone black. The inputs are on P8_13, P9_16. Outputs are on P9_23, P9_41. 
+
+==========
+Prof. Yoder's comments
+It would help if your ReadMe would give the file names for the mmap code.
+I don't see the Memory Map like figure 2-5.
+Otherwise it looks good.  Makefile is a nice touch.
+
+Grade:  9/10
