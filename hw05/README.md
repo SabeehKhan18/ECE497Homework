@@ -8,3 +8,8 @@ And here it is running from my BBB:
 debian@khanbbb:~$ ./a.out 
 Hello World!
 
+==========
+Prof. Yoder's comments
+Looks good and complete.
+
+Grade:  10/10
