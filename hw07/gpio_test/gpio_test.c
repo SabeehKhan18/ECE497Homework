@@ -20,8 +20,8 @@ MODULE_AUTHOR("Derek Molloy");
 MODULE_DESCRIPTION("A Button/LED test driver for the BBB");
 MODULE_VERSION("0.1");
 
-static unsigned int gpioLED = 113;       ///< hard coding the LED gpio for this example to P9_28 
-static unsigned int gpioButton = 115;   ///< hard coding the button gpio for this example to P9_27_
+static unsigned int gpioLED = 115;       ///< hard coding the LED gpio for this example to P9_28 
+static unsigned int gpioButton = 113;   ///< hard coding the button gpio for this example to P9_27_
 static unsigned int irqNumber;          ///< Used to share the IRQ number within this file
 static unsigned int numberPresses = 0;  ///< For information, store the number of button presses
 static bool	    ledOn = 0;          ///< Is the LED on or off? Used to invert its state (off by default)
@@ -53,7 +53,7 @@ static int __init ebbgpio_init(void){
 			                    // the bool argument prevents the direction from being changed
    gpio_request(gpioButton, "sysfs");       // Set up the gpioButton
    gpio_direction_input(gpioButton);        // Set the button GPIO to be an input
-   gpio_set_debounce(gpioButton, 200);      // Debounce the button with a delay of 200ms
+   //gpio_set_debounce(gpioButton, 200);      // Debounce the button with a delay of 200ms
    gpio_export(gpioButton, false);          // Causes gpio115 to appear in /sys/class/gpio
 			                    // the bool argument prevents the direction from being changed
    // Perform a quick test to see that the button is working as expected on LKM load
