@@ -7,6 +7,7 @@ GPIO.setup(inputButton,GPIO.IN)
 GPIO.setup(output,GPIO.OUT)
 
 while True:
+    print(GPIO.input(inputButton))
     if GPIO.input(inputButton):
         GPIO.output(output,GPIO.HIGH)
     else:

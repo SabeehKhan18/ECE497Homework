@@ -66,10 +66,10 @@ static int __init ebbgpio_init(void){
    // This next call requests an interrupt line
    result = request_irq(irqNumber,             // The interrupt number requested
                         (irq_handler_t) ebbgpio_irq_handler, // The pointer to the handler function below
-                        IRQF_TRIGGER_RISING,   // Interrupt on rising edge (button press, not release)
+                        IRQF_TRIGGER_RISING | IRQF_TRIGGER_FALLING,   // Interrupt on rising edge (button press, not release)
                         "ebb_gpio_handler",    // Used in /proc/interrupts to identify the owner
                         NULL);                 // The *dev_id for shared interrupt lines, NULL is okay
-
+	
    printk(KERN_INFO "GPIO_TEST: The interrupt request result is: %d\n", result);
    return result;
 }
@@ -104,8 +104,6 @@ static void __exit ebbgpio_exit(void){
 static irq_handler_t ebbgpio_irq_handler(unsigned int irq, void *dev_id, struct pt_regs *regs){
    ledOn = !ledOn;                          // Invert the LED state on each button press
    gpio_set_value(gpioLED, ledOn);          // Set the physical LED accordingly
-   printk(KERN_INFO "GPIO_TEST: Interrupt! (button state is %d)\n", gpio_get_value(gpioButton));
-   numberPresses++;                         // Global counter, will be outputted when the module is unloaded
    return (irq_handler_t) IRQ_HANDLED;      // Announce that the IRQ has been handled correctly
 }
 
